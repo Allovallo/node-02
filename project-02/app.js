@@ -5,10 +5,14 @@ const invokeAction = async ({ action, id, title, author }) => {
     case "read":
       const allBooks = await books.getAll();
       return console.log(allBooks);
+    case "getById":
+      const oneBook = await books.getById(id);
+      return console.log(oneBook);
 
     default:
       return console.log("Unknown action :(");
   }
 };
 
-invokeAction({ action: "read" });
+// invokeAction({ action: "read" });
+invokeAction({ action: "getById", id: "YxhM4QDxPeA3SmPHcEZPJ" });
