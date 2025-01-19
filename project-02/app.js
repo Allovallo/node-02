@@ -1,3 +1,5 @@
+const { program } = require("commander");
+
 const books = require("./books");
 
 const invokeAction = async ({ action, id, title, author }) => {
@@ -32,4 +34,23 @@ const invokeAction = async ({ action, id, title, author }) => {
 //   title: "XXX",
 //   author: "YYY",
 // });
-invokeAction({ action: "deleteById", id: "S0dAKFY_px1-55wheEX13" });
+// invokeAction({ action: "deleteById", id: "S0dAKFY_px1-55wheEX13" });
+
+// console.log(process.argv);
+
+// const actionIndex = process.argv.indexOf("--action");
+// if (actionIndex !== -1) {
+//   const action = process.argv[actionIndex + 1];
+//   invokeAction({ action });
+// }
+
+program
+  .option("--action <type>")
+  .option("--id <type>")
+  .option("--title <type>")
+  .option("--author <type>");
+
+program.parse();
+
+const options = program.opts();
+invokeAction(options);
