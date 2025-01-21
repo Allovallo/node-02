@@ -45,8 +45,8 @@ const invokeAction = async ({ action, id, title, author }) => {
 // }
 
 program
-  .option("--action <type>")
-  .option("--id <type>")
+  .option("-a --action <type>")
+  .option("-i --id <type>")
   .option("--title <type>")
   .option("--author <type>");
 
